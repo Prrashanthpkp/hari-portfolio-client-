@@ -97,7 +97,7 @@ export default function Hero() {
         <div className={styles.cell}>
           <span className={styles.cellLabel}>Resume</span>
           
-           <a href="\public\HariPrasath_Resume.pdf"
+           <a href="/HariPrasath_Resume.pdf"
             download="HariPrasath_Resume.pdf"
             className={styles.resumeBtn}
           >
@@ -111,7 +111,7 @@ export default function Hero() {
       <div className={styles.resumeMobile}>
         <span className={styles.cellLabel}>Resume</span>
         
-         <a href="/assets/resume.pdf"
+         <a href="/HariPrasath_Resume.pdf"
           download="HariPrasath_Resume.pdf"
           className={styles.resumeMobileBtn}
         >
