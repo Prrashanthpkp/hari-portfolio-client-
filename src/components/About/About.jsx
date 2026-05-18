@@ -11,7 +11,7 @@ const skills = [
 
 const education = [
   { num: '01', degree: 'Higher Secondary', school: 'La Chatelaine Junior College', year: '—' },
-  { num: '02', degree: 'B.Tech CS — Gaming Technology', school: 'SRM IST', year: '2024' },
+  { num: '02', degree: 'B.Tech CS — Gaming Technology', school: 'SRM IST', year: '2025' },
   { num: '03', degree: 'MSc Computer Games Design', school: 'University of Staffordshire', year: '2026' },
 ];
 
