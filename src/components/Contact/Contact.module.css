@@ -1,0 +1,70 @@
+.contact {
+  background: var(--bk3);
+  border-bottom: var(--border-thick);
+  display: flex; flex-direction: column;
+}
+
+.top {
+  padding: 5rem 3rem 3rem;
+  position: relative;
+}
+.top::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--pu);
+}
+
+.big {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 14vw, 14rem);
+  line-height: 0.85; letter-spacing: -0.01em; color: var(--wh);
+}
+.sv  { color: var(--sv); }
+.outline { -webkit-text-stroke: 2px var(--sv); color: transparent; }
+
+.bottomGrid {
+  display: grid; grid-template-columns: 1fr 2px 1fr;
+  border-top: var(--border-thick);
+}
+.cell { padding: 2.5rem 3rem; }
+.cellDiv { background: var(--sv); opacity: 0.2; }
+.cellLabel {
+  font-size: 0.55rem; letter-spacing: 0.5em;
+  text-transform: uppercase; color: var(--sv3); margin-bottom: 1rem;
+}
+.emailLink {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: clamp(0.85rem, 2vw, 1.6rem);
+  color: var(--wh); text-decoration: none;
+  letter-spacing: 0.03em;
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  border-bottom: 2px solid var(--sv3); padding-bottom: 0.4rem;
+  transition: color 0.25s, border-color 0.25s, gap 0.25s;
+  word-break: break-all;
+}
+.emailLink:hover { color: var(--pu2); border-color: var(--pu2); gap: 1.4rem; }
+.available {
+  font-size: 0.55rem; letter-spacing: 0.3em;
+  color: var(--sv3); margin-top: 1rem; text-transform: uppercase;
+}
+.phone {
+  font-size: 0.7rem; letter-spacing: 0.15em;
+  color: var(--sv3); margin-top: 1rem;
+}
+
+.socLinks { display: flex; flex-direction: column; gap: 0.8rem; }
+.soc {
+  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--sv3); text-decoration: none;
+  display: flex; align-items: center; gap: 1rem;
+  transition: color 0.2s, gap 0.2s;
+}
+.soc::before { content: '//'; color: var(--pu2); font-size: 0.7em; }
+.soc:hover { color: var(--wh); gap: 1.5rem; }
+
+@media (max-width: 768px) {
+  .top { padding: 3rem 1.5rem 2rem; }
+  .bottomGrid { grid-template-columns: 1fr; }
+  .cellDiv { display: none; }
+  .cell { padding: 2rem 1.5rem; }
+}

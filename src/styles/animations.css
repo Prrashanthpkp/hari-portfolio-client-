@@ -1,0 +1,92 @@
+/* ══ KEYFRAMES ═══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes drawLineY {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes drawLineX {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+@keyframes bracketIn {
+  to { opacity: 0.3; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ══ SCROLL REVEAL ═══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.up { opacity: 1; transform: none; }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.up { opacity: 1; transform: none; }
+
+/* ══ GRID WIPE ═══════════════════════════════════════════ */
+/* ✅ FIX: removed background color from ::after so it works on ALL section
+   backgrounds. Uses a silver sweep instead — looks intentional and works
+   on bk, bk2, bk3 equally */
+.grid-wipe {
+  position: relative;
+  overflow: hidden;
+}
+.grid-wipe::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--sv);
+  opacity: 0.15;
+  transform: translateX(-101%);
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1),
+              opacity 0.3s ease 0.7s;
+  z-index: 2;
+  pointer-events: none;
+}
+.grid-wipe.wiped::after {
+  transform: translateX(101%);
+  opacity: 0;
+}
+
+/* ══ STAGGER ═════════════════════════════════════════════ */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger.up > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.00s; }
+.stagger.up > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.06s; }
+.stagger.up > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.12s; }
+.stagger.up > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.18s; }
+.stagger.up > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.24s; }
+.stagger.up > *:nth-child(6)  { opacity:1; transform:none; transition-delay:0.30s; }
+.stagger.up > *:nth-child(7)  { opacity:1; transform:none; transition-delay:0.36s; }
+.stagger.up > *:nth-child(8)  { opacity:1; transform:none; transition-delay:0.42s; }
+.stagger.up > *:nth-child(9)  { opacity:1; transform:none; transition-delay:0.48s; }
+.stagger.up > *:nth-child(10) { opacity:1; transform:none; transition-delay:0.54s; }
+.stagger.up > *:nth-child(11) { opacity:1; transform:none; transition-delay:0.60s; }
+.stagger.up > *:nth-child(12) { opacity:1; transform:none; transition-delay:0.66s; }

@@ -1,0 +1,246 @@
+.hero {
+  height: 100vh;
+  background: var(--bk);
+  border-bottom: var(--border-thick);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.strip {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--border);
+  padding: 1.2rem 2.5rem;
+}
+.stripLeft {
+  font-size: 0.6rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--sv3);
+}
+.stripRight { display: flex; gap: 2.5rem; }
+.stripRight a {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--sv3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.stripRight a:hover { color: var(--pu2); }
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+  position: relative;
+}
+.main::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--sv);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawLineY 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
+}
+
+.eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--pu2);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeUp 0.6s ease 0.5s both;
+}
+.eyebrow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--pu2);
+  animation: drawLineX 0.8s ease 1s both;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+.line1 { display: block; color: var(--wh); }
+.line2 { color: var(--sv); }
+.line3 { -webkit-text-stroke: 2px var(--sv); color: transparent; }
+
+.cursor {
+  display: inline-block;
+  width: 0.06em; height: 0.75em;
+  background: var(--pu2);
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blink 0.8s step-end infinite;
+}
+
+.bracket {
+  position: absolute;
+  right: 2.5rem; top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+.bracketLine {
+  display: block;
+  height: 2px;
+  background: var(--sv);
+  opacity: 0;
+  animation: bracketIn 0.4s ease forwards;
+}
+
+/* Bottom strip — 4 cells desktop */
+.bottom {
+  flex-shrink: 0;
+  height: 90px;
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+  border-top: var(--border-thick);
+}
+.cell {
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.cellDiv {
+  width: 2px;
+  background: var(--sv);
+  opacity: 0.25;
+  align-self: stretch;
+}
+.cellLabel {
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--sv3);
+}
+.cellValue {
+  font-family: var(--font-sub);
+  font-weight: 900;
+  font-size: clamp(0.85rem, 1.8vw, 1.5rem);
+  color: var(--wh);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dot {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--pu2);
+  animation: pulse 2s ease infinite;
+}
+
+/* Resume button — desktop cell */
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bk);
+  background: var(--sv);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--sv);
+  transition: background 0.25s, color 0.25s, border-color 0.25s, gap 0.25s;
+  white-space: nowrap;
+}
+.resumeBtn:hover {
+  background: var(--pu);
+  border-color: var(--pu);
+  color: var(--wh);
+  gap: 0.8rem;
+}
+.resumeIcon {
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: transform 0.25s;
+}
+.resumeBtn:hover .resumeIcon { transform: translateY(2px); }
+
+/* ✅ Mobile resume row — hidden on desktop */
+.resumeMobile {
+  display: none;
+  flex-shrink: 0;
+  border-top: var(--border);
+  padding: 0.9rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.resumeMobileBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bk);
+  background: var(--sv);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--sv);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.resumeMobileBtn:hover {
+  background: var(--pu);
+  border-color: var(--pu);
+  color: var(--wh);
+}
+
+/* ✅ RESPONSIVE */
+@media (max-width: 900px) {
+  .strip .stripRight { display: none; }
+  .main { padding: 2rem 1.5rem; }
+  .bracket { display: none; }
+
+  /* Collapse to 3 cells — Status, Based In, Year */
+  .bottom {
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    height: 80px;
+  }
+  /* Hide Resume cell and its divider */
+  .bottom .cell:nth-child(7)      { display: none; }
+  .bottom .cellDiv:nth-child(6)   { display: none; }
+
+  /* Show mobile resume row */
+  .resumeMobile { display: flex; }
+  .cell { padding: 0 1.5rem; }
+  .cellValue { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  /* Collapse to 2 cells — Status and Based In */
+  .bottom {
+    grid-template-columns: 1fr 2px 1fr;
+    height: 80px;
+  }
+  /* Hide Year cell and its divider */
+  .bottom .cell:nth-child(5)      { display: none; }
+  .bottom .cellDiv:nth-child(4)   { display: none; }
+}

@@ -1,0 +1,104 @@
+/* ══ RESET ═══════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ══ VARIABLES ═══════════════════════════════════════════ */
+:root {
+  --bk:  #0A0A0A;
+  --bk2: #111111;
+  --bk3: #161616;
+  --sv:  #C0C0C0;
+  --sv2: #A8A8A8;
+  --sv3: #555555;
+  --pu:  #6B21A8;
+  --pu2: #7C3AED;
+  --wh:  #FFFFFF;
+  --wh2: #E8E8E8;
+
+  --border:       2px solid #C0C0C0;
+  --border-thick: 4px solid #C0C0C0;
+  --border-pu:    2px solid #6B21A8;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-sub:     'Barlow Condensed', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+}
+
+/* ══ BASE ════════════════════════════════════════════════ */
+body {
+  font-family: var(--font-mono);
+  background: var(--bk);
+  color: var(--wh);
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+body.overlay-open  { overflow: hidden; }
+body.nav-open      { overflow: hidden; }
+
+/* ══ GRAIN ═══════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+/* ══ SHARED SECTION STYLES ═══════════════════════════════ */
+.sec-header {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  border-bottom: var(--border);
+}
+
+.sec-num {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  color: var(--sv3);
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  padding: 2rem 0;
+  text-align: center;
+  border-right: var(--border);
+}
+
+.sec-title-wrap { padding: 2.5rem 3rem; }
+
+.sec-eyebrow {
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--pu2);
+  margin-bottom: 0.8rem;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.88;
+  color: var(--wh);
+  letter-spacing: 0.01em;
+}
+
+.sec-title .outline {
+  -webkit-text-stroke: 2px var(--sv);
+  color: transparent;
+}
+
+.block-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--sv3);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--sv3);
+}
+
+/* ══ RESPONSIVE HELPERS ══════════════════════════════════ */
+@media (max-width: 768px) {
+  .sec-title-wrap { padding: 2rem 1.5rem; }
+  .sec-num        { font-size: 0.5rem; }
+}
