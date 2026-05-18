@@ -19,7 +19,7 @@ const stats = [
   { target: 6,   suffix: '+',  label: 'Games Built',       pu: false },
   { target: 3,   suffix: '',   label: 'Game Engines',      pu: false },
   { target: 100, suffix: '%',  label: 'Passion',           pu: true  },
-  { target: 2,   suffix: 'yr', label: 'MSc Postgrad',      pu: true  },
+  { target: 1,   suffix: 'yr', label: 'MSc Postgrad',      pu: true  },
 ];
 
 function StatCell({ target, suffix, label, pu }) {
